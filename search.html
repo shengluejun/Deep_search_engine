@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        .head{
+            background: #979EA8;
+            height: 100px;
+            border-radius: 15px;
+        }
+        .left{
+            width:70%;
+            height: 400px;
+            background: #E2E2E2;
+            margin-left: 5px;
+            margin-top: 5px;
+            float: left;
+        }
+        .left h2{
+            margin-top: 0px;
+            padding-top:20px;
+            padding-left: 40px;
+        }
+        #search{
+            width:80%;
+            margin-left: 20px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        #search-btn,#history-btn{
+            height: 40px;
+            width:100px;
+            margin-top: 20px;
+            margin-left: 20px;
+            background: #969FA6;
+            outline:none;
+        }
+        .right{
+            width: 300px;
+            float: left;
+            border:1px solid #E6E5EA;
+            height: 400px;
+            margin-left: 30px;
+            margin-top: 5px;
+        }
+        .right-h{
+            height: 50px;
+            background: #CCD1D7;
+            text-align: center;
+            line-height: 50px;
+            font-size: 25px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="http://malsup.github.io/jquery.form.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="left">
+    <h2>Documents</h2>
+   <div><input type="text" id="search" list="optionList" autocomplete="on"/></div>
+    <datalist id="optionList">
+        {% for gh in k %}
+        <option value="{{gh}}" />
+        {% endfor %}
+</datalist>
+   <div>
+       <input type="button" id="search-btn" value="Search"/>
+       <input type="button" id="history-btn" value="History"/>
+   </div>
+
+</div>
+<div class="right">
+    <div class="right-h">
+        Filter
+    </div>
+     <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" onsubmit="return Submit()">
+    <div>
+        Filter  Type:<br/>
+        <input type="radio" name="f" value="pdf" checked>PDF
+        <input type="radio" name="f" value="word">word
+        <input type="radio" name="f" value="txt">txt
+        <input type="radio" name="f" value="excel">Excel
+    </div>
+    <div>
+        Upload By:<input type="file" id="fi" name="fi"/>Upload Date:<br/><input type="date" id="date" name="date"/>
+    </div>
+    <div>
+        <input type="submit" style="width: 100px;height: 30px;margin-left: 10px;margin-top: 20px">
+    </div>
+ </form>
+</div>
+</body>
+</html>

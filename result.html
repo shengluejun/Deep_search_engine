@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+        .head{
+            background: #979EA8;
+            height: 100px;
+            border-radius: 15px;
+        }
+        .left{
+            width:70%;
+
+            background: #E2E2E2;
+            margin-left: 5px;
+            margin-top: 5px;
+            float: left;
+        }
+        .left h2{
+            margin-top: 0px;
+            padding-top:20px;
+            text-align: center;
+
+        }
+        #search{
+            width:80%;
+            margin-left: 20px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        #search-btn,#history-btn{
+            height: 40px;
+            width:100px;
+            margin-top: 20px;
+            margin-left: 20px;
+            background: #969FA6;
+            outline:none;
+        }
+        .right{
+            width: 300px;
+            float: left;
+            border:1px solid #E6E5EA;
+            margin-left: 30px;
+            margin-top: 5px;
+        }
+        .right-h{
+            height: 50px;
+            background: #979EA8;
+            text-align: center;
+            line-height: 50px;
+            font-size: 25px;
+        }
+        .right-h1{
+            height: 50px;
+            background: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 15px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #CCD1D7;
+            cursor: pointer;
+        }
+        .right-h4{
+            height: 50px;
+            background: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 15px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #CCD1D7;
+            cursor: pointer;
+        }
+        .right-h1:hover,.right-h4:hover,.right-h3:hover{
+            background: #969FA6;
+        }
+
+        .right-h3{
+            height: 50px;
+            background: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 15px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #CCD1D7;
+            cursor: pointer;
+        }
+        .right-h5{
+            height: 50px;
+            background: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 15px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #CCD1D7;
+            cursor: pointer;
+        }
+
+
+        .item{
+            background: white;
+            width: 98%;
+            border-radius: 10px;
+            margin: 10px auto;
+            height: 160px;
+        }
+        .item-left{
+            width: 50%;
+            margin-left: 10px;
+            float: left;
+            background: white;
+            height: 150px;
+            padding-top:10px;
+        }
+        .item-right{
+            width: 47%;
+            text-align: right;
+            float: left;
+            height:120px;
+
+            line-height: 120px;
+
+
+        }
+        .match{
+            color: red;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="http://malsup.github.io/jquery.form.js"></script>
+</head>
+<body>
+<div class="head"></div>
+<div class="left">
+     <h2>Result</h2>
+    <div class="box">
+         {% for i in data %}
+             <div class="item">
+       <div class="item-left">
+           <div>FileName:{{ i.title|safe }}</div>
+           <div>FileType:{{ i.filetype }}</div>
+           <div>UpLoad By:{{ i.acter }}</div>
+           <div>UpLoad Date:{{ i.date_time }}</div>
+           <div>META:{{ i.content|safe }}</div>
+       </div>
+
+   </div>
+         {% endfor %}
+
+     </div>
+
+
+</div>
+
+
+
+<div class="right">
+    <div class="right-h">
+        Sort By
+    </div>
+    <div class="right-h1">
+        ReLevance (Most-Least)
+    </div>
+    <div class="right-h3">
+        UpLoad Date(New-Old)
+    </div>
+    <div class="right-h4">
+       UpLoad Date(Old-New)
+    </div>
+
+
+    <div>
+        Filter  Type:<br/>
+        <input type="radio" name="f" value="pdf">PDF
+        <input type="radio" name="f" value="word">word
+        <input type="radio" name="f" value="txt">txt
+        <input type="radio" name="f" value="excel">Excel
+    </div>
+
+
+</div>
+</body>
+</html>
+<script>
+
+</script>
